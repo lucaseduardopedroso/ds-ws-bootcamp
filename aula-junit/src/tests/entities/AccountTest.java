@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import entities.Account;
+import tests.factory.AccountFactory;
 
 public class AccountTest {
 
@@ -12,7 +13,7 @@ public class AccountTest {
         // Arrange
         Double amount = 200.0;
         Double expectedBalance = 196.0;
-        Account account = new Account(1L, 0.0);
+        Account account = AccountFactory.createEmptyAccount();
         // Act
         account.deposit(amount);
         // Assert
@@ -24,7 +25,7 @@ public class AccountTest {
         // Arrange
         Double amount = -200.0;
         Double expectedValue = 100.0;
-        Account account = new Account(1L, expectedValue);
+        Account account = AccountFactory.createAccount(expectedValue);
         // Act
         account.deposit(amount);
         // Assert
